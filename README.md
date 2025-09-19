@@ -1,4 +1,5 @@
 # 📦 Project Setup
+![CI](https://github.com/CarlRod2001/module2_is601/actions/workflows/tests.yml/badge.svg)
 
 ---
 
@@ -262,3 +263,27 @@ Then submit the GitHub repository link as instructed.
 - [Python Downloads](https://www.python.org/downloads/)
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 - [GitHub SSH Setup Guide](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
+
+---
+
+## Continuous Integration (GitHub Actions)
+
+This project includes a simple GitHub Actions workflow that runs the test suite on push and pull requests.
+
+- Workflow path: `.github/workflows/python-app.yml`
+- What it does: checks out the code, sets up Python (3.10 and 3.11), installs packages from `requirements.txt`, runs `pytest`, and uploads the HTML coverage report as an artifact.
+
+How to use:
+
+1. Commit and push the repository to GitHub (on `main` or `master`).
+2. Open a pull request or push a commit — the workflow will run automatically.
+
+View results in the GitHub Actions tab of your repository. If you need to change Python versions or add steps (linting, packaging), edit the workflow file.
+
+Running tests locally:
+
+```powershell
+python -m venv .venv; .\.venv\Scripts\Activate.ps1; pip install -r requirements.txt; pytest -q
+```
+
+The workflow uploads the `htmlcov` directory as an artifact so you can download the coverage HTML from the Actions run.
