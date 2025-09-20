@@ -27,49 +27,49 @@ def run_calculator_with_input(monkeypatch, inputs):
 # Positive Tests
 def test_addition(monkeypatch):
     """Test addition operation in REPL."""
-    inputs = ["add 2 3", "exit"]
+    inputs = ["add 9 10", "exit"]
     output = run_calculator_with_input(monkeypatch, inputs)
-    assert "Result: 5.0" in output
+    assert "Result: 19.0" in output
 
 
 def test_subtraction(monkeypatch):
     """Test subtraction operation in REPL."""
-    inputs = ["subtract 5 2", "exit"]
+    inputs = ["subtract 6 4", "exit"]
     output = run_calculator_with_input(monkeypatch, inputs)
-    assert "Result: 3.0" in output
+    assert "Result: 2.0" in output
 
 
 def test_multiplication(monkeypatch):
     """Test multiplication operation in REPL."""
-    inputs = ["multiply 4 5", "exit"]
+    inputs = ["multiply 3 7", "exit"]
     output = run_calculator_with_input(monkeypatch, inputs)
-    assert "Result: 20.0" in output
+    assert "Result: 21.0" in output
 
 
 def test_division(monkeypatch):
     """Test division operation in REPL."""
-    inputs = ["divide 10 2", "exit"]
+    inputs = ["divide 16 4", "exit"]
     output = run_calculator_with_input(monkeypatch, inputs)
-    assert "Result: 5.0" in output
+    assert "Result: 4.0" in output
 
 
 # Negative Tests
 def test_invalid_operation(monkeypatch):
     """Test invalid operation in REPL."""
-    inputs = ["modulus 5 3", "exit"]
+    inputs = ["modulus 11 2", "exit"]
     output = run_calculator_with_input(monkeypatch, inputs)
     assert "Unknown operation" in output
 
 
 def test_invalid_input_format(monkeypatch):
     """Test invalid input format in REPL."""
-    inputs = ["add two three", "exit"]
+    inputs = ["add eight nine", "exit"]
     output = run_calculator_with_input(monkeypatch, inputs)
     assert "Invalid input. Please follow the format" in output
 
 
 def test_division_by_zero(monkeypatch):
     """Test division by zero in REPL."""
-    inputs = ["divide 5 0", "exit"]
+    inputs = ["divide 9 0", "exit"]
     output = run_calculator_with_input(monkeypatch, inputs)
     assert "Division by zero is not allowed" in output
